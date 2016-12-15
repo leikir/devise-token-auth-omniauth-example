@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div style="text-align: right;margin-right: 4%;">
+      <% if user_signed_in? %>
+	Logged in as <strong><%= current_user.email %></strong>
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+	<%= link_to "Sign in with Google", "/api/v1/auth/google_oauth2" %>
+      <% end %>
+
+      <% if flash[:notice] %>
+	<div><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+	<div><%= flash[:alert] %></div>
+      <% end %>
+
+      <%= yield %>
   </body>
 </html>
