@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/v1/auth', controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root 'application#home'
+
+  get 'angular' => 'angular#index'
 end

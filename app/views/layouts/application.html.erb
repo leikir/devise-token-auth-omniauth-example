@@ -4,26 +4,28 @@
     <title>DeviseTokenAuthOmniauthExample</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <div style="text-align: right;margin-right: 4%;">
       <% if user_signed_in? %>
-	Logged in as <strong><%= current_user.email %></strong>
-	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        Logged in as <strong><%= current_user.email %></strong>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       <% else %>
-	<%= link_to "Sign in with Google", "/api/v1/auth/google_oauth2" %>
+        <%= link_to "Sign in with Google", "/api/v1/auth/google_oauth2" %>
       <% end %>
 
       <% if flash[:notice] %>
-	<div><%= flash[:notice] %></div>
+        <div><%= flash[:notice] %></div>
       <% end %>
       <% if flash[:alert] %>
-	<div><%= flash[:alert] %></div>
+        <div><%= flash[:alert] %></div>
       <% end %>
+    </div>
 
-      <%= yield %>
+    <%= yield %>
+    
   </body>
 </html>
