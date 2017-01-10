@@ -4,7 +4,9 @@ module Users
 
     def omniauth_success
       super do |resource|
-        if request.env['omniauth.params'].nil? # if backend standalone auth
+        if omniauth_window_type.present? # auth requested from angular
+          sign_in resource
+        else # auth requested from backend standalone
           remember_me resource
           sign_in_and_redirect resource and return
         end

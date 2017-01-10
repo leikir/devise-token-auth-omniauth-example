@@ -1,3 +1,19 @@
 <div style="text-align: center;">
   <h1>Welcome to Leikir's Devise Token Auth Omniauth demo app!</h1>
+  <div>
+    <h2>Rails</h2>
+    <% if user_signed_in? %>
+      Already connected
+    <% else %>
+      <%= link_to "Sign in with Google", "/api/v1/auth/google_oauth2" %>
+    <% end %>
+  </div>
+  <div ng-app="ngTokenAuth" ng-controller="ngTokenAuthController">
+    <h2>Angular</h2>
+    <% if user_signed_in? %>
+      Already connected
+    <% else %>
+      <a href="#" ng-click="googleLogin()">Sign in with Google</a>
+    <% end %>
+  </div>
 </div>
