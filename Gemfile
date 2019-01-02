@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
@@ -41,7 +41,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 # API token authentification
-gem 'devise_token_auth'
+gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

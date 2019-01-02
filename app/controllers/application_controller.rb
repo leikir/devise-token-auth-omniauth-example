@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include DeviseTokenAuth::Concerns::SetUserByToken
 
   # N.B.:
   # This controller is inherited by Devise's controllers
@@ -10,6 +11,8 @@ class ApplicationController < ActionController::Base
     ENV['HOSTNAME']
   end
 
-  def home ; end
+  def home
+    byebug
+  end
 
 end
